@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Love</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #cb80ff, #ffe6f7);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      animation: popUp 1s ease forwards;
+      max-width: 90%;
+      width: 400px;
+    }
+
+    h1 {
+      font-size: 2em;
+      color: #ff4081;
+    }
+
+    p {
+      font-size: 1.1em;
+      margin-top: 15px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    @keyframes popUp {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 7s infinite;
+      opacity: 0.6;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 25px 20px;
+        border-radius: 15px;
+      }
+
+      h1 {
+        font-size: 1.7em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Happyy Birthdayyy, My Loveee🤍🎂</h1>
+    <p>Happy birthday to you, my babyyy,<br>
+        You make my world Complete.<br>
+        With you, life feels so right,<br>
+        You are my heart, my shining light.</p>
+    <p>I’m so lucky to have you❤️</p>
+  </div>
+
+  <script>
+    // Create floating hearts
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.top = Math.random() * 100 + 'vh';
+      heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 10000);
+    }
+  </script>
+
+</body>
+</html>
